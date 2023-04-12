@@ -11,7 +11,7 @@
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Giovane-F-Moreira/gpview)
 ![GitHub followers](https://img.shields.io/github/followers/Giovane-F-Moreira?label=Follow)
 
-<img src="./assets/Prototype/Prototype-Screen.png" ><br>
+<img src="./assets/Prototype/Prototype-Screens.png" width="800"><br>
 > App for view calendar in Moto GP 2023
 
 The project is still in development and the next updates will focus on the following tasks:
