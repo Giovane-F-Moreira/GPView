@@ -16,8 +16,8 @@ const Navbar = ({ navigation }) => {
         onPress={() => navigation.navigate('Sobre')}
       >
         <Image
-          source={{ uri: 'https://www.thesportsdb.com/images/media/league/badge/rppvpw1422400797.png' }}
-          style={{ width: 80, height: 40}}
+          source={logo }
+          style={{ width: 150, height: 40}}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   navbar: {
     marginTop: 28,
     flexDirection: 'row',
-    backgroundColor: '#000',
+    backgroundColor: '#BF1F2C',
     height: 60,
     alignItems: 'center',
     justifyContent: 'space-around',

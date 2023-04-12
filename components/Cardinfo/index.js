@@ -1,52 +1,102 @@
 import {Text, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native';
 
-const CardInfo = () => {
-  return (
-    <View style={styles.background}>
-      <Image style={styles.img}
-        source={{ uri: 'https://images.uncyc.org/pt/thumb/d/d9/Bandeira_de_Portugal.png/300px-Bandeira_de_Portugal.png' }}
-      />
-      <Text style={styles.date}>26</Text><Text style={styles.title}>GP de Portugal</Text>
-      
+import Barra from '../../assets/img/barra.png';
+import IconLocalization from '../../assets/icon/localizacao.png';
 
+const CardInfo = (props) => {
+
+return (
+  <View style={styles.container}>
+    <View style={styles.content}>
+      <Image
+        style={styles.imagem}
+        source={{uri: props.img}}
+      />
+      <View style={styles.textContainer}>
+        <Text style={styles.date}>{props.date}</Text>
+        <Text style={styles.month}>{props.month}</Text>
+      </View>
+      <Image
+        style={styles.barra}
+        source={Barra}
+      />
+      <View>
+        <Text style={styles.titulo}>{props.local}</Text>
+        <View style={styles.circuito}>
+          <Image
+            style={styles.iconLocalizacao}
+            source={IconLocalization}
+          />
+          <Text style={styles.textoCircuito}>{props.circuito}</Text>
+        </View>
+      </View>
     </View>
-  );
+  </View>
+);
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flexDirection: 'row',
+  container: {
+    alignItems: 'center',
+    
+  },
+  content: {
+
+    position: 'relative',
     backgroundColor: '#141211',
     opacity: 0.66,
     marginTop: 15,
-    height: 76,
-    width: 337,
+    height: 85,
+    width: 350,
     borderRadius: 10,
-  }, 
-  img: {
-    flexDirection: 'column',
-    marginTop: 12,
-    marginLeft: 12,
-    height: 50,
-    width: 50,
+    borderWidth: 1,
+    borderColor: '#BF1F2C',
+
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  imagem: {
+    width: 65,
+    height: 65,
+    marginLeft: 10,
     borderRadius: 50,
+  },
+  textContainer: {
+    alignItems: 'flex-start',
+
   },
   date: {
-    fontSize: 40,
+    fontSize: 35,
     color: '#fff',
-    flexDirection: 'row',
-    height: 50,
-    width: 50,
-    borderRadius: 50,
+    fontWeight: 'bold',
   },
-  title: {
+  month: {
     fontSize: 20,
     color: '#fff',
-    marginLeft: 30,
+    fontWeight: 'bold',
+  },
+  barra: {
+    marginLeft: 4,
+    width: 2,
+    height: 70,
+  },
+  titulo: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 25,
+  },
+  iconLocalizacao: {
+    width: 25,
+    height: 25,
+  },
+  circuito: {
     flexDirection: 'row',
-    borderRadius: 50,
-  }
+  },
+  textoCircuito: {
+    marginTop: 10,
+    color: 'white',
+  },
 });
 
 export default CardInfo;

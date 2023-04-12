@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, } from 'react-native';
+import { StyleSheet, View, ImageBackground, } from 'react-native';
 import SearchBar from './components/SearchBar';
 import Navbar from './components/Navbar';
 import CardInfo from './components/Cardinfo';
@@ -9,20 +9,52 @@ export default function App() {
   return (
     <>
     <ImageBackground
-      source={require('./assets/background-image.jpg')}
+      source={require('./assets/img/bg.jpg')}
       style={styles.imageBackground}>
-          <Navbar style={styles.navbar} />
-          <View style={styles.content}>
+      <StatusBar style="dark" />
+      <Navbar style={styles.navbar} />
 
-            <SearchBar></SearchBar>
-            <CardInfo/>
-            <CardInfo/>
-            <CardInfo/>
-            <CardInfo/>
-            <CardInfo/>
-            <StatusBar style="auto" />
+      <View style={styles.content}>
+        <SearchBar></SearchBar>
+        <CardInfo 
+        img='https://images.uncyc.org/pt/thumb/d/d9/Bandeira_de_Portugal.png/300px-Bandeira_de_Portugal.png' 
+        date='26'
+        month='Mar'
+        local='GP de Portugal'
+        circuito='Circuito de Portimão'
+        />
 
-          </View>
+        <CardInfo 
+        img='https://imagepng.org/wp-content/uploads/2017/10/bandeira-argentina.png' 
+        date='02'
+        month='Abr'
+        local='GP da Argentina'
+        circuito='Circuito Termas de Rio Hondo'
+        />
+
+        <CardInfo 
+        img='https://www.gov.br/agricultura/pt-br/assuntos/relacoes-internacionais/agro-mais-investimentos/imagens/bandeira-dos-estados-unidos.png/@@images/image.png' 
+        date='16'
+        month='Abr'
+        local='GP das Americas'
+        circuito='Circuito das Américas'
+        />
+
+        <CardInfo 
+        img='https://imagepng.org/wp-content/uploads/2017/09/bandeira-espanha.png' 
+        date='30'
+        month='Abr'
+        local='GP da Espanha'
+        circuito='Circuito Jerez de la Frontera'
+        />
+        <CardInfo 
+        img='https://www.bandeirasnacionais.com/data/flags/big/fr.png' 
+        date='14'
+        month='Abr'
+        local='GP da França'
+        circuito='Circuito le Mans-Bugatti'
+        />
+      </View>
     </ImageBackground>
     </>
 

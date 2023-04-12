@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: '#F0EEEE',
     height: 50,
-    borderRadius: 5,
-    marginHorizontal: 15,
+    width: 350,
+    borderRadius: 10,
     flexDirection: 'row',
     marginTop: 10,
     marginBottom: 40,
