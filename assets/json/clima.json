@@ -1,0 +1,18 @@
+{
+  "clima": [
+      {
+          "_id": 1,
+          "idevento": "1",
+          "temperatura": "13º C",
+          "umidade": "64%",
+          "vento": "7.1 m/s"
+      }, 
+      {
+        "_id": 2,
+        "idevento": "2",
+        "temperatura": "27º C",
+        "umidade": "33%",
+        "vento": "12.2 m/s"
+    }
+  ]
+}
