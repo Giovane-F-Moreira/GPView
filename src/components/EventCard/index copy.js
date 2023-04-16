@@ -1,46 +1,38 @@
-import React from 'react';
 import { Image, Text, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
 import Barra from '../../assets/img/barra.png';
 import IconLocalization from '../../assets/icon/localizacao.png';
 
 export const EventCard = (props) => {
   
-  const navigation = useNavigation();
-
   return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Detalhes')}
-      >
-        <View style={styles.container}>
-          <View style={styles.content}>
-            <Image
-              style={styles.imagem}
-              source={{uri: props.img}}
-            />
-            <View style={styles.textContainer}>
-              <Text style={styles.date}>{props.date}</Text>
-              <Text style={styles.month}>{props.month}</Text>
-            </View>
-            <Image
-              style={styles.barra}
-              source={Barra}
-            />
-            <View>
-              <Text style={styles.titulo}>{props.local}</Text>
-              <View style={styles.circuito}>
-                <Image
-                  style={styles.iconLocalizacao}
-                  source={IconLocalization}
-                />
-                <Text style={styles.textoCircuito}>{props.circuito}</Text>
-              </View>
+    <TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Image
+            style={styles.imagem}
+            source={{uri: props.img}}
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.date}>{props.date}</Text>
+            <Text style={styles.month}>{props.month}</Text>
+          </View>
+          <Image
+            style={styles.barra}
+            source={Barra}
+          />
+          <View>
+            <Text style={styles.titulo}>{props.local}</Text>
+            <View style={styles.circuito}>
+              <Image
+                style={styles.iconLocalizacao}
+                source={IconLocalization}
+              />
+              <Text style={styles.textoCircuito}>{props.circuito}</Text>
             </View>
           </View>
         </View>
-      </TouchableOpacity>
-
+      </View>
+    </TouchableOpacity>
   )
 }
 

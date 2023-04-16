@@ -1,7 +1,7 @@
 import React from "react";
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ImageBackground, FlatList } from 'react-native';
+import { StyleSheet, View, ImageBackground, FlatList, TextInput } from 'react-native';
 
 import SearchBar from '../../components/SearchBar';
 import Navbar from '../../components/Navbar';
@@ -10,8 +10,7 @@ import { EVENTOS } from "../../utils/eventos";
 import { EventCard } from "../../components/EventCard";
 
 
-export default class Home extends React.Component {
-
+export default class Feeds extends React.Component {
 
   render = ()=> {
     return (

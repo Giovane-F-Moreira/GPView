@@ -9,7 +9,7 @@ const SearchBar = ({ searchHandler }) => {
     <View style={styles.background}>
       <Feather name="search" style={styles.iconStyle} />
       <TextInput
-        placeholder="Pesquisar"
+        placeholder="Buscar"
         style={styles.inputStyle}
         value={term}
         onChangeText={(newTerm) => setTerm(newTerm)}
