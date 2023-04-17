@@ -5,9 +5,11 @@ import { StyleSheet, View, ImageBackground, FlatList, TextInput } from 'react-na
 
 import SearchBar from '../../components/SearchBar';
 import Navbar from '../../components/Navbar';
+import FeedCard from "../../components/FeedCard";
 
 import { EVENTOS } from "../../utils/eventos";
 import { EventCard } from "../../components/EventCard";
+import bancoEstatico from "../../utils/database.json";
 
 
 export default class Feeds extends React.Component {
@@ -31,24 +33,22 @@ export default class Feeds extends React.Component {
           <Navbar style={styles.navbar} />
 
           <View style={styles.content}>
-            {/* <TextInput 
-              placeholderTextColor="#ffffff"
-              placeholder="Buscar"
-              style={styles.input}
-            /> */}
+
             <SearchBar></SearchBar>
             <FlatList 
               data={EVENTOS}
-              keyExtractor={(item) => item.id}
+              keyExtractor={(item) => String(item.id)}
               renderItem={({item}) => 
-                <EventCard
-                  img={item.localImg}
-                  date={item.date}
-                  month={item.month}
-                  local={item.local}
-                  circuito={item.circuito}
-                  navegador={this.props.navigation}
-                />
+
+                <FeedCard feed={item} navegador={this.props.navigation} />
+                // <EventCard
+                //   img={item.localImg}
+                //   date={item.date}
+                //   month={item.month}
+                //   local={item.local}
+                //   circuito={item.circuito}
+                //   navegador={this.props.navigation}
+                // />
               }
             >
             </FlatList>

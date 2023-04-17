@@ -13,7 +13,7 @@ const Navbar = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.navbarButton}
-        onPress={() => navigation.navigate('Sobre')}
+        onPress={() => navigation.navigate('Home')}
       >
         <Image
           source={logo }

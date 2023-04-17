@@ -31,7 +31,7 @@ The project is still in development and the next updates will focus on the follo
 - Node: v18.12.1
 - React-Native-cli: 2.0.1
 
-> `<img src="https://cdn-icons-png.flaticon.com/512/497/497738.png" width="15">` It is recommended to use **Expo** to run the project.
+> `<img src="https://cdn-icons-png.flaticon.com/512/497/497738.png" width="15">` It is recommended to use **Expo** to run the project. Case not get expo installed, install executing in terminal: npm install --global expo-cli
 
 ## 🚀 Using GPView
 
@@ -93,4 +93,4 @@ As an alternative, refer to the GitHub documentation at [How to create a pull re
 
 This project is licensed. See the file [LICENÇA](LICENSE.md) for more details.
 
-[⬆ Go back to the top](#nome-do-projeto)`<br>`
+[⬆ Go back to the top](#nome-do-projeto) `<br>`
