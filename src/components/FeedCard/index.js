@@ -32,34 +32,34 @@ export default class FeedCard extends React.Component {
                 this.exibirDetalhes();
             }}>          
 
-                        <View style={styles.container}>
-                            <View style={styles.content}>
-                                <Image
-                                    style={styles.imagem}
-                                    source={{uri: feed.localImg}}
-                                />
+                <View style={styles.container}>
+                    <View style={styles.content}>
+                        <Image
+                            style={styles.imagem}
+                            source={{uri: feed.localImg}}
+                        />
 
-                                <View style={styles.textContainer}>
-                                    <Text style={styles.date}>{feed.date}</Text>
-                                    <Text style={styles.month}>{feed.month}</Text>
-                                </View>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.date}>{feed.date}</Text>
+                            <Text style={styles.month}>{feed.month}</Text>
+                        </View>
 
+                        <Image
+                            style={styles.barra}
+                            source={Barra}
+                        />
+                        <View>
+                            <Text style={styles.titulo}>{feed.local}</Text>
+                            <View style={styles.circuito}>
                                 <Image
-                                    style={styles.barra}
-                                    source={Barra}
+                                style={styles.iconLocalizacao}
+                                source={IconLocalization}
                                 />
-                                <View>
-                                    <Text style={styles.titulo}>{feed.local}</Text>
-                                    <View style={styles.circuito}>
-                                        <Image
-                                        style={styles.iconLocalizacao}
-                                        source={IconLocalization}
-                                        />
-                                        <Text style={styles.textoCircuito}>{feed.circuito}</Text>
-                                    </View>
-                                </View>
+                                <Text style={styles.textoCircuito}>{feed.circuito}</Text>
                             </View>
-                        </View>                                       
+                        </View>
+                    </View>
+                </View>                                       
 
             </TouchableOpacity>
         );
