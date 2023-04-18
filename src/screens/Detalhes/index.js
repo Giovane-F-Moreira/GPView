@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ImageBackground, FlatList, Image } from 'react-native';
 import { Header } from "react-native-elements";
 
-import imgTabela from '../../assets/img/tabela.png';
 
 import logo from '../../assets/img/logo.png';
 
@@ -13,41 +12,13 @@ import IconAnt from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconSimple from "react-native-vector-icons/SimpleLineIcons";
 
-import ClimateConditions from '../../components/ClimateConditions';
-import { MotorcycleCircuit } from '../../components/InfoCircuit';
-import { EVENTOS } from '../../utils/eventos';
-import  TableProgrammer from '../../components/TableEvent';
-import DetalheClima from '../../components/DetalheClima';
 import InfoCircuit from '../../components/InfoCircuit';
-
+import DetalheClima from '../../components/DetalheClima';
 import { eventos } from '../../utils/database.json';
-
-import {
-  Avatar,
-  NomeProduto,
-  DescricaoProduto,
-  PrecoProduto,
-  Likes,
-  NomeEmpresa,
-  CentralizadoNaMesmaLinha,
-  EsquerdaDaMesmaLinha,
-  Espacador,
-  Cabecalho,
-  SecaoComentarios,
-  ContenedorComentario,
-  EspacadorComentario,
-  AutorComentario,
-  Comentario,
-  DataComentario,
-  ContenedorNovoComentario,
-  DivisorComentario,
-  ContenedorComentarioDoUsuario
-} from "../../assets/styles";
-
-import bancoEstatico from "../../utils/database.json";
-import { color } from 'react-native-elements/dist/helpers';
-import CircuitName from '../../components/CircuitName';
 import TableEvent from '../../components/TableEvent';
+
+import { CentralizadoNaMesmaLinha } from "../../assets/styles";
+
 
 export default class Detalhes extends React.Component {
 
@@ -55,7 +26,7 @@ export default class Detalhes extends React.Component {
     super(props);
 
     const { feedId } = this.props.navigation.state.params;
-    console.log("-------- Eventos: ",eventos)
+    // console.log("-------- Eventos: ",eventos)
     this.state = {
         feedId: feedId,
         feed: null,
@@ -99,9 +70,9 @@ export default class Detalhes extends React.Component {
 
           rightComponent={
             <CentralizadoNaMesmaLinha>
-              <IconEvil size={50} name="user" onPress={() => {
+              {/* <IconEvil size={50} name="user" onPress={() => {
                   this.props.navigation.goBack();
-              }} />
+              }} /> */}
             </CentralizadoNaMesmaLinha>
           }
         />
@@ -151,6 +122,8 @@ export default class Detalhes extends React.Component {
 
 
             <DetalheClima eventos={this.circuito()} />
+
+            <TableEvent eventos={this.circuito()} />
 
             {/* <TableProgrammer
             /> */}

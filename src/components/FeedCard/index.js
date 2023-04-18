@@ -12,7 +12,7 @@ export default class FeedCard extends React.Component {
         super(props);
 
         const {feed, navegador} = this.props;
-        console.log("navegador: ",navegador);
+        // console.log("navegador: ",navegador);
         this.state = {
             feed: feed,
             navegador: navegador
@@ -27,7 +27,7 @@ export default class FeedCard extends React.Component {
 
     render = () => {
         const {feed} = this.state;
-        console.log(feed.detalhes)
+        // console.log(feed.detalhes)
         return(
             <TouchableOpacity onPress={ () => {
                 this.exibirDetalhes();

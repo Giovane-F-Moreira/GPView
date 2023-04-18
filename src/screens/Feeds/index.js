@@ -17,25 +17,7 @@ import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconSimple from "react-native-vector-icons/SimpleLineIcons";
 
 import {
-  Avatar,
-  NomeProduto,
-  DescricaoProduto,
-  PrecoProduto,
-  Likes,
-  NomeEmpresa,
   CentralizadoNaMesmaLinha,
-  EsquerdaDaMesmaLinha,
-  Espacador,
-  Cabecalho,
-  SecaoComentarios,
-  ContenedorComentario,
-  EspacadorComentario,
-  AutorComentario,
-  Comentario,
-  DataComentario,
-  ContenedorNovoComentario,
-  DivisorComentario,
-  ContenedorComentarioDoUsuario
 } from "../../assets/styles";
 
 export default class Feeds extends React.Component {
@@ -74,9 +56,9 @@ export default class Feeds extends React.Component {
 
             rightComponent={
                 <CentralizadoNaMesmaLinha>
-                  <IconEvil size={50} name="user" onPress={() => {
+                  {/* <IconEvil size={50} name="user" onPress={() => {
                       this.props.navigation.goBack();
-                  }} />
+                  }} /> */}
                 </CentralizadoNaMesmaLinha>
               }
           />

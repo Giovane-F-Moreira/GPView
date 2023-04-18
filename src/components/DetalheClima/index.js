@@ -6,7 +6,7 @@ import imgNuvem from '../../assets/icon/nublado.png';
 import imgUmidade from '../../assets/icon/pingo-dagua.png';
 import imgBiruta from '../../assets/icon/biruta.png';
 
-function DetalheClima({eventos}) {
+function DetalheClima({eventos}) { 
   return (
       <View style={styles.containerClima}>
         <Text style={styles.titleClima}>Condições Climaticas</Text>

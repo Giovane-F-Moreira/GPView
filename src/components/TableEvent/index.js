@@ -1,43 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Table, TableWrapper, Row, Rows } from 'react-native-table-component';
 import { EVENTOS } from '../../utils/eventos';
 
-export default class TableEvent extends Component {
-  constructor(props) {
-    super(props);
+const TableEvent = ({ eventos }) => {
+  const tableHead = ['Sessões', 'Dia', 'Data', 'Hora'];
+  const tableData = [
+    ['TL1',     eventos.horario.tl1.day,     eventos.horario.tl1.date,    eventos.horario.tl1.time],
+    ['TC',      eventos.horario.tc.day,      eventos.horario.tc.date,     eventos.horario.tc.time],
+    ['TL2',     eventos.horario.tl2.day,     eventos.horario.tl2.date,    eventos.horario.tl2.time],
+    ['Sprint',  eventos.horario.sprint.day,  eventos.horario.sprint.date, eventos.horario.sprint.time],
+    ['GP',      eventos.horario.gp.day,      eventos.horario.gp.date,     eventos.horario.gp.time]
+  ];
 
-    const {feed} = this.props;
-    this.state = { 
-      feed: feed,
-      tableHead: ['Sessões', 'Dia', 'Data', 'Hora'],
-      tableData: [
-        ['TL1',    EVENTOS[0].horario.sessao.TL1, '24/03/2023', '07:45'],
-        ['TC',     'Sábado',      '25/03/2023', '07:50'],
-        ['TL2',    'Sexta-Feira', '24/03/2023', '12:00'],
-        ['Spring', 'Sábado',      '25/03/2023', '12:00'],
-        ['GP',     'Domingo',     '26/03/2023', '10:00']
-      ]
-    }
-  }
-
-  render() {
-    const state = this.state;
-    const {feed} = this.state;
-
-    return (
-      <View style={styles.container}>
-        <Table borderStyle={{borderWidth: 1}}>
-          <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
-          <Rows data={state.tableData} textStyle={styles.text}/>
-        </Table>
-      </View>
-    )
-  }
-}
+  return (
+    <View style={styles.container}>
+      <Table borderStyle={{ borderWidth: 1 }}>
+        <Row data={tableHead} style={styles.head} textStyle={styles.text} />
+        <Rows data={tableData} textStyle={styles.text} />
+      </Table>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  container: { margin: 16, backgroundColor: '#000000', opacity: 0.70 },
+  container: { margin: 16, backgroundColor: '#000000', opacity: 0.7 },
   head: { height: 40, backgroundColor: '#000000' },
-  text: { margin: 6, color: '#FFF'}
+  text: { margin: 6, color: '#FFF' }
 });
+
+export default TableEvent;
