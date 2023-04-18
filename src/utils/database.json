@@ -4,7 +4,7 @@
       "id": 1,
       "localImg": "https://images.uncyc.org/pt/thumb/d/d9/Bandeira_de_Portugal.png/300px-Bandeira_de_Portugal.png",
       "local": "GP de Portugal",
-      "circuito": "Circuito de Portima",
+      "circuito": "Circuito de Portimão",
       "date": "26",
       "month": "MAR",
       "detalhes": {
@@ -136,9 +136,9 @@
           "curvas": "15(7 Direita, 8 Esquerda)"
       },
       "clima" : {
-          "temperatura": "13° C",
-          "umidade": "64%",
-          "vento": "7.1 m/s"
+          "temperatura": "55° C",
+          "umidade": "03%",
+          "vento": "2.3 m/s"
       },
       "horario" : {
           "sessao": { 

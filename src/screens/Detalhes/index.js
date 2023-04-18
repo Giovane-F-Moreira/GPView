@@ -1,28 +1,110 @@
 import React, { useEffect, useState } from 'react';
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ImageBackground, Text, Image, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, View, ImageBackground, FlatList, Image } from 'react-native';
+import { Header } from "react-native-elements";
 
-import Navbar from '../../components/Navbar';
 import imgTabela from '../../assets/img/tabela.png';
 
-import { ClimateConditions } from '../../components/ClimateConditions';
-import { MotorcycleCircuit } from '../../components/MotorcycleCircuit';
+import logo from '../../assets/img/logo.png';
+
+import Icon from "react-native-vector-icons/Entypo";
+import IconAnt from "react-native-vector-icons/AntDesign";
+import IconEvil from "react-native-vector-icons/EvilIcons";
+import IconSimple from "react-native-vector-icons/SimpleLineIcons";
+
+import ClimateConditions from '../../components/ClimateConditions';
+import { MotorcycleCircuit } from '../../components/InfoCircuit';
 import { EVENTOS } from '../../utils/eventos';
-import  TableProgrammer from '../../components/TableProgrammer';
+import  TableProgrammer from '../../components/TableEvent';
+import DetalheClima from '../../components/DetalheClima';
+import InfoCircuit from '../../components/InfoCircuit';
+
+import { eventos } from '../../utils/database.json';
+
+import {
+  Avatar,
+  NomeProduto,
+  DescricaoProduto,
+  PrecoProduto,
+  Likes,
+  NomeEmpresa,
+  CentralizadoNaMesmaLinha,
+  EsquerdaDaMesmaLinha,
+  Espacador,
+  Cabecalho,
+  SecaoComentarios,
+  ContenedorComentario,
+  EspacadorComentario,
+  AutorComentario,
+  Comentario,
+  DataComentario,
+  ContenedorNovoComentario,
+  DivisorComentario,
+  ContenedorComentarioDoUsuario
+} from "../../assets/styles";
 
 import bancoEstatico from "../../utils/database.json";
+import { color } from 'react-native-elements/dist/helpers';
+import CircuitName from '../../components/CircuitName';
+import TableEvent from '../../components/TableEvent';
 
+export default class Detalhes extends React.Component {
 
-export const Detalhes = () => {
+  constructor(props) {
+    super(props);
 
+    const { feedId } = this.props.navigation.state.params;
+    console.log("-------- Eventos: ",eventos)
+    this.state = {
+        feedId: feedId,
+        feed: null,
+        comentarios: [],
+        proximaPagina: 1,
+        atualizandoComentarios: false,
+
+        textoNovoComentario: null,
+        telaNovoComentarioVisivel: false,
+
+        usuario: null
+      }
+      // console.log("\n\n\n\nItem encontrado: ",eventos.find(({id}) => id === this.state.feedId), '\n\n\n\n')
+  }
+
+  circuito = () => eventos.find(({id}) => id === this.state.feedId)
+
+  render = () => {
   return (
     <>
       <ImageBackground
-        source={require('../../assets/img/bgDetalhe.png')}
-        style={styles.imageBackground}>
+        source={require('../../assets/img/bgDetalhe.png')} 
+      >
         <StatusBar style="dark" />
-        <Navbar style={styles.navbar} />
+
+        <Header  backgroundColor='#BF1F2C'
+          leftComponent={
+            <IconAnt size={28} name="arrowleft" onPress={() => {
+                this.props.navigation.goBack();
+            }} />
+          }
+
+          centerComponent={
+            <CentralizadoNaMesmaLinha>
+              <Image
+                style={{ width: 150, height: 40}}
+                source={logo}
+              />
+            </CentralizadoNaMesmaLinha>
+          }
+
+          rightComponent={
+            <CentralizadoNaMesmaLinha>
+              <IconEvil size={50} name="user" onPress={() => {
+                  this.props.navigation.goBack();
+              }} />
+            </CentralizadoNaMesmaLinha>
+          }
+        />
 
         <View style={styles.container}>
           <View style={styles.bgOpacity}>
@@ -57,63 +139,52 @@ export const Detalhes = () => {
               />
             </View> */}
 
-            {/* <MotorcycleCircuit
+            <InfoCircuit data={this.circuito()} />
+            {/* <FlatList 
+              data={EVENTOS}
+              keyExtractor={(item) => String(item.id)}
+              renderItem={({item}) => 
+                <ClimateConditions feed={item} />
 
-            />
-
-            <ClimateConditions
-              // temperatura={EVENTOS.clima.temperatura}
+              }
             /> */}
+
+
+            <DetalheClima eventos={this.circuito()} />
 
             {/* <TableProgrammer
             /> */}
 
-            <Button
+            {/* <Button
               title="Pressione-me"
               onPress={() => console.log('Botão pressionado')}
-            />
-
+            /> */}
+            <TableEvent eventos={this.circuito()} />
           </View>
         </View>
       </ImageBackground>
     </>
   )
 }
+}
+
 
 const styles = StyleSheet.create({
   container: {
 
+  },
+  header:{
+    backgroundColor: '#fff',
+    color: '#FFF'
   },
   imageBackground: {
     
   },
   bgOpacity: {
     backgroundColor: '#000',
-    height: 700,
+    height: 750,
     opacity: 0.66,
     marginBottom: 20
-  },
-  iconPercurso: {
-    marginLeft: 20,
-    width: 40,
-    height: 40, 
-    marginTop: 20
-  },
-  iconCurvas: {
-    marginLeft: 30,
-    width: 40,
-    height: 40, 
-    marginTop: 20
-  },
-  percurso: {
-    marginLeft: 20,
-    color: 'white',
-    fontSize: 15,
-  },
-  curvas: {
-    marginLeft: 150,
-    color: 'white',
-    fontSize: 15,
   },
   tituloIcones: {
     flexDirection: 'row',
@@ -126,15 +197,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  viewTitle: {
-
-  },
-  title: {
-    fontSize: 35,
-    color: 'white',
-    borderColor: 'black',
-    // borderStyle: 'solid',
-    // borderWidth: '2',
-    textAlign: 'center',
-  }
 });

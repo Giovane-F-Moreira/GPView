@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import IconPercurson from '../../assets/icon/pista-de-corrida.png';
 import IconCurva from '../../assets/icon/curvas.png';
 
-export const MotorcycleCircuit = (props) => {
+export const InfoCircuit = (props) => {
   
   return (
 

@@ -8,10 +8,11 @@ import IconLocalization from '../../assets/icon/localizacao.png';
 
 export default class FeedCard extends React.Component {
 
-    constructor(props) {
+    constructor(props) { 
         super(props);
 
         const {feed, navegador} = this.props;
+        console.log("navegador: ",navegador);
         this.state = {
             feed: feed,
             navegador: navegador
@@ -20,13 +21,13 @@ export default class FeedCard extends React.Component {
 
     exibirDetalhes = () => {
         const { feed, navegador } = this.state;
-
-        navegador.navigate("Detalhes", { feedId: feed._id });
+        // console.log("Exibir Detalhe: ",feed);
+        navegador.navigate("Detalhes", { feedId: feed.id });
     }
 
     render = () => {
         const {feed} = this.state;
-
+        console.log(feed.detalhes)
         return(
             <TouchableOpacity onPress={ () => {
                 this.exibirDetalhes();
@@ -49,14 +50,14 @@ export default class FeedCard extends React.Component {
                             source={Barra}
                         />
                         <View>
-                            <Text style={styles.titulo}>{feed.local}</Text>
-                            <View style={styles.circuito}>
-                                <Image
+                          <Text style={styles.titulo}>{feed.local}</Text>
+                          <View style={styles.circuito}>
+                              <Image
                                 style={styles.iconLocalizacao}
                                 source={IconLocalization}
-                                />
-                                <Text style={styles.textoCircuito}>{feed.circuito}</Text>
-                            </View>
+                              />
+                              <Text style={styles.textoCircuito}>{feed.circuito}</Text>
+                          </View>
                         </View>
                     </View>
                 </View>                                       

@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Table, TableWrapper, Row, Rows } from 'react-native-table-component';
+import { EVENTOS } from '../../utils/eventos';
 
-export default class TableProgrammer extends Component {
+export default class TableEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+
+    const {feed} = this.props;
+    this.state = { 
+      feed: feed,
       tableHead: ['Sessões', 'Dia', 'Data', 'Hora'],
       tableData: [
-        ['TL1',    'Sexta-Feira', '24/03/2023', '07:45'],
+        ['TL1',    EVENTOS[0].horario.sessao.TL1, '24/03/2023', '07:45'],
         ['TC',     'Sábado',      '25/03/2023', '07:50'],
         ['TL2',    'Sexta-Feira', '24/03/2023', '12:00'],
         ['Spring', 'Sábado',      '25/03/2023', '12:00'],
@@ -19,6 +23,8 @@ export default class TableProgrammer extends Component {
 
   render() {
     const state = this.state;
+    const {feed} = this.state;
+
     return (
       <View style={styles.container}>
         <Table borderStyle={{borderWidth: 1}}>

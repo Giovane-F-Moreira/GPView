@@ -1,16 +1,42 @@
 import React from "react";
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ImageBackground, FlatList, TextInput } from 'react-native';
+import { StyleSheet, View, ImageBackground, FlatList, TextInput, Image } from 'react-native';
+import { Header } from "react-native-elements";
+import { EventCard } from "../../components/EventCard";
+import { EVENTOS } from "../../utils/eventos";
 
 import SearchBar from '../../components/SearchBar';
-import Navbar from '../../components/Navbar';
 import FeedCard from "../../components/FeedCard";
+import logo from '../../assets/img/logo.png';
+import { eventos } from "../../utils/database.json";
 
-import { EVENTOS } from "../../utils/eventos";
-import { EventCard } from "../../components/EventCard";
-import bancoEstatico from "../../utils/database.json";
+import Icon from "react-native-vector-icons/Entypo";
+import IconAnt from "react-native-vector-icons/AntDesign";
+import IconEvil from "react-native-vector-icons/EvilIcons";
+import IconSimple from "react-native-vector-icons/SimpleLineIcons";
 
+import {
+  Avatar,
+  NomeProduto,
+  DescricaoProduto,
+  PrecoProduto,
+  Likes,
+  NomeEmpresa,
+  CentralizadoNaMesmaLinha,
+  EsquerdaDaMesmaLinha,
+  Espacador,
+  Cabecalho,
+  SecaoComentarios,
+  ContenedorComentario,
+  EspacadorComentario,
+  AutorComentario,
+  Comentario,
+  DataComentario,
+  ContenedorNovoComentario,
+  DivisorComentario,
+  ContenedorComentarioDoUsuario
+} from "../../assets/styles";
 
 export default class Feeds extends React.Component {
 
@@ -30,28 +56,40 @@ export default class Feeds extends React.Component {
           style={styles.imageBackground}>
 
           <StatusBar style="dark" />
-          <Navbar style={styles.navbar} />
+          <Header  backgroundColor='#BF1F2C'
+            leftComponent={
+              <CentralizadoNaMesmaLinha>
+
+              </CentralizadoNaMesmaLinha>
+            }
+
+            centerComponent={
+              <CentralizadoNaMesmaLinha>
+                <Image
+                  style={{ width: 150, height: 40}}
+                  source={logo}
+                />
+              </CentralizadoNaMesmaLinha>
+            }
+
+            rightComponent={
+                <CentralizadoNaMesmaLinha>
+                  <IconEvil size={50} name="user" onPress={() => {
+                      this.props.navigation.goBack();
+                  }} />
+                </CentralizadoNaMesmaLinha>
+              }
+          />
 
           <View style={styles.content}>
 
             <SearchBar></SearchBar>
-            <FlatList 
-              data={EVENTOS}
+            <FlatList
+              data={eventos}
               keyExtractor={(item) => String(item.id)}
-              renderItem={({item}) => 
-
-                <FeedCard feed={item} navegador={this.props.navigation} />
-                // <EventCard
-                //   img={item.localImg}
-                //   date={item.date}
-                //   month={item.month}
-                //   local={item.local}
-                //   circuito={item.circuito}
-                //   navegador={this.props.navigation}
-                // />
+              renderItem={({item}) => <FeedCard key={item.id} feedId={item.id} feed={item} navegador={this.props.navigation} />
               }
-            >
-            </FlatList>
+            />
           </View>
         </ImageBackground>
       </>  
