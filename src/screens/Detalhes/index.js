@@ -17,8 +17,7 @@ import DetalheClima from '../../components/DetalheClima';
 import { eventos } from '../../utils/database.json';
 import TableEvent from '../../components/TableEvent';
 
-import { CentralizadoNaMesmaLinha } from "../../assets/styles";
-
+import { CentralizadoNaMesmaLinha, EntradaNomeCircuito } from "../../assets/styles";
 
 export default class Detalhes extends React.Component {
 
@@ -76,69 +75,23 @@ export default class Detalhes extends React.Component {
             </CentralizadoNaMesmaLinha>
           }
         />
-
         <View style={styles.container}>
           <View style={styles.bgOpacity}>
 
-            {/* <View style={styles.viewTitle}>
-              <Text style={styles.title}>Circuito  de Portimão</Text>
-            </View> */}
-{/*             
-            <View style={styles.tituloIcones}>
-              <Image
-                style={styles.iconPercurso}
-                source={IconPercurson}
-              />
-              <Text style={styles.tituloPercurso}>Percurso</Text>
-
-              <Image
-                style={styles.iconCurvas}
-                source={IconCurva}
-              />
-              <Text style={styles.tituloPercurso}>Curvas</Text>
-            </View>
-            <View style={styles.tituloIcones}>
-
-              <Text style={styles.percurso}>props.percurso</Text>
-
-              <Text style={styles.curvas}>15 (7 Direita, 8 Esquerda)</Text>
-            </View> */}
-            {/* <View style={styles}>
-              <Image
-                style={styles.imgCircuito}
-                source={imgCircuito}
-              />
-            </View> */}
-
             <InfoCircuit data={this.circuito()} />
-            {/* <FlatList 
-              data={EVENTOS}
-              keyExtractor={(item) => String(item.id)}
-              renderItem={({item}) => 
-                <ClimateConditions feed={item} />
-
-              }
-            /> */}
-
 
             <DetalheClima eventos={this.circuito()} />
 
             <TableEvent eventos={this.circuito()} />
 
-            {/* <TableProgrammer
-            /> */}
-
-            {/* <Button
-              title="Pressione-me"
-              onPress={() => console.log('Botão pressionado')}
-            /> */}
             <TableEvent eventos={this.circuito()} />
           </View>
         </View>
       </ImageBackground>
     </>
-  )
-}
+    ) 
+  }
+
 }
 
 

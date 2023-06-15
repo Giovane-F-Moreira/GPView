@@ -42,9 +42,9 @@ export const Likes = styled.Text`
     color: #59594a;
 `;
 
-export const EntradaNomeProduto = styled.TextInput`
+export const EntradaNomeCircuito = styled.TextInput`
     height: 40px;
-    width: 100%;
+    width: 80%;
     background-color: #fff;
     border-color: #c7c7c7;
     border-width: 1;

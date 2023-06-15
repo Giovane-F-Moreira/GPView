@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Table, TableWrapper, Row, Rows } from 'react-native-table-component';
-import { EVENTOS } from '../../utils/eventos';
 
 const TableEvent = ({ eventos }) => {
   const tableHead = ['Sessões', 'Dia', 'Data', 'Hora'];
@@ -24,7 +23,7 @@ const TableEvent = ({ eventos }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { margin: 16, backgroundColor: '#000000', opacity: 0.7 },
+  container: { margintop: 20 ,margin: 16, backgroundColor: '#000000', opacity: 0.7 },
   head: { height: 40, backgroundColor: '#000000' },
   text: { margin: 6, color: '#FFF' }
 });

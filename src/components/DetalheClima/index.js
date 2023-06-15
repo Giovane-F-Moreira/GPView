@@ -1,5 +1,4 @@
 import React from 'react';
-import { EVENTOS } from '../../utils/eventos';
 import { StyleSheet, View, ImageBackground, Text, Image } from 'react-native';
 
 import imgNuvem from '../../assets/icon/nublado.png';
@@ -54,8 +53,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   containerClima: {
+    marginTop: 20,
     backgroundColor: '#000',
-    height: 75,
+    height: 100,
     opacity: 0.66,
     marginBottom: 20
   },
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     height: 30
   },
   titleClima: {
+    marginTop: 10,
     color: 'white',
     marginLeft: 10,
     fontSize: 20
